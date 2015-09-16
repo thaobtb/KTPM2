@@ -62,12 +62,8 @@ public class QuadraticTest {
     public void TwoSolutionTest()
     {   
         System.out.println("Two Solutions");
-        double ex1 = 2.0;
-        double ex2 = 1.0;
         Quadratic q = new Quadratic(1, -3, 2);
-        double r1 = q.result1;
-        double r2 = q.result2;
-        assertEquals(ex1, r1, 0.0);
-        assertEquals(ex1, r2, 0.0);
+        assertEquals(2.0, q.result1, 0.0);
+        assertEquals(1.0, q.result2, 0.0);
     }
 }
