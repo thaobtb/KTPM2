@@ -24,6 +24,7 @@ public class Quadratic {
         a = a1;
         b = b1;
         c = c1;
+        calculate();
     }
     public void calculate()
     {
@@ -37,14 +38,14 @@ public class Quadratic {
         {
             result1 = (-b + Math.sqrt(delta))/(2*a);
             result2 = (-b - Math.sqrt(delta))/(2*a);
+            System.out.println("x1 = " + result1 + "\n" + "x2 = " + result2);
             check = false;
             
         }
     }
     public static void main(String[] args) {
-        Quadratic q = new Quadratic(1, -3, 2);
-        q.calculate();  
-        System.out.println("x1 = " + q.result1 + "\n" + "x2 = " + q.result2);
+        Quadratic q = new Quadratic(1, -3, 2); 
+        
     }
     
 }

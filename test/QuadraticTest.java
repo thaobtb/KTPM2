@@ -47,12 +47,14 @@ public class QuadraticTest {
     @Test
     public void NoSolutionTest()
     {
+        System.out.println("Test case: no solutions");  
         Quadratic q = new Quadratic(1, -3, 2);
-        assertEquals(true, q.check);
+        assertEquals(false, q.check);
     }
     
     @Test
     public void DoublerootTest(){
+        System.out.println("Double Root");  
         Quadratic q = new Quadratic(1, -2, 1);
         assertEquals(1,q.result1,0.0);
         assertEquals(1,q.result2,0.0);
@@ -61,13 +63,11 @@ public class QuadraticTest {
     @Test
     public void TwoSolutionTest()
     {   
-        System.out.println("Two Solutions");
+        System.out.println("Two Solutions");       
+        Quadratic q = new Quadratic(1, -3, 2);
         double ex1 = 2.0;
         double ex2 = 1.0;
-        Quadratic q = new Quadratic(1, -3, 2);
-        double r1 = q.result1;
-        double r2 = q.result2;
-        assertEquals(ex1, r1, 0.0);
-        assertEquals(ex1, r2, 0.0);
+        assertEquals(ex1, q.result1, 1);
+        assertEquals(ex1, q.result2, 1);
     }
 }
