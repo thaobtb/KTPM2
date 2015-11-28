@@ -1,0 +1,113 @@
+Bài tập Kiểm thử luồng điều khiển và Kiểm thử luồng dữ liệu
+
+Họ và tên: Bùi Thị Bích Thảo
+Mã sinh viên: 12020352
+
+Bài làm
+Bài 1: Phân biệt kiểm thử hộp đen và kiểm thử hộp trắng?
+Trả lời:
+a.	Kiểm thử hộp đen:
+•	Là phương pháp test chỉ dựa trên đầu vào và đầu ra của chương trình mà không quan tâm về cấu trúc bên trong của chương trình. 
+•	Tập trung vào tìm các trường hợp không thực hiện theo đặc tả => dữ liệu kiểm tra chỉ được lấy từ các đặc tả.
+•	Mức kiểm thử: Áp dụng đối với các cấp cao hơn của kiểm thử: kiểm thử chấp nhận, kiểm thử hệ thống. 
+•	Không cần kiến thức lập trình.
+•	Cơ sở cho Test Cases Đặc tả yêu cầu.
+b.	Kiểm thử hộp trắng:
+•	Là phương pháp test dựa vào thuật toán, cấu trúc code bên trong của chương trình với mục đích đảm bảo rằng tất cả các lệnh và điều kiện sẽ được thực hiện ít nhất một lần.
+•	Mức kiểm thử: Áp dụng đối với các cấp thấp hơn của kiểm thử: Kiểm thử đơn vị,  kiểm thử tích hợp.
+•	Cần hiểu rõ thuật toán, kỹ năng và kiến thức lập trình.
+•	Cơ sở cho Test Cases Thiết kế chi tiết.
+•	
+Bài 2: Trình bày các độ đo kiểm thử cho kiểm thử luồng điều khiển?
+
+
+Độ đo kiểm thử	Mô tả
+Cấp 1 (C1)	Mỗi câu lệnh được thực hiện ít nhất một lần sau khi chạy test cases.
+Cấp 2	Các điểm quyết định trong đồ thị luồng điều khiển của đơn vị kiểm thử đều được thực hiện ít nhất một lần cả hai nhánh đúng và sai.
+Cấp 3	Các điều kiện con thuộc các điều kiện phức tạp tương ứng với các điểm quyết định trong đồ thị luồng điều khiển cần được thực hiện ít nhất một lần cả hai nhánh đúng và sai.
+
+Bài 3: 
+ 
+
+
+
+
+
+
+
+
+
+a.	Đồ thị luồng điều khiển C1 và C2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+b.	Đường đi và ca kiểm thử đối với độ đo C1:
+	Đường đi:
+•	1-> 2(F) ->4(F)->7(F)->10(F)->13(F)->16->17 – Test Case 1
+•	1->2(F)->4(F)->7(T)->8->17– Test Case 2
+•	1->2(T)->3 – Test Case 3
+•	.....
+	Ca kiểm thử:
+
+ID	Test Path	Inputs	EO	RO	Note
+TC1	1-> 2(F) ->4(F)->7(F)->10(F)->13(F)->16->17	4	F		
+TC2	1->2(F)->4(F)->7(T)->8->17	8.5	B		
+TC3	1->2(T)->3	11	I		
+
+c.	Đường đi và ca kiểm thử với độ đo C2: do có 5 điểm quyết định -> cần ít nhất 6 đường đi để đạt được 100% độ phủ của độ đo C2.
+	Đường đi:
+•	1-> 2(F) ->4(F)->7(F)->10(F)->13(F)->16->17 – Test Case 1
+•	1-> 2(F) ->4(F)->7(F)->10(F)->13(T)->14->17 – Test Case 2
+•	1-> 2(F) ->4(F)->7(F)->10(T)->11->17 – Test Case 3
+•	1-> 2(F) ->4(F)->7(T)->8->17 – Test Case 4
+•	1->2(F)->4(T)->5->17– Test Case 5
+•	1->2(T)->3 – Test Case6
+•	......
+	Ca kiểm thử:
+ID	Test Path	Inputs	EO	RO	Note
+TC1	1-> 2(F) ->4(F)->7(F)->10(F)->13(F)->16->17	4	F		
+TC2	1-> 2(F) ->4(F)->7(F)->10(F)->13(T)->14->17	5.5	D		
+TC3	1-> 2(F) ->4(F)->7(F)->10(T)->11->17	7	C		
+TC4	1->2(F)->4(F)->7(T)->8->17	8.5	B		
+TC5	1->2(F)->4(T)->5->17	9	A		
+TC6	1->2(T)->3	11	I		
+
+Bài 4: Trình bày các bước nhằm kiểm thử một đơn vị chương tình theo phương pháp kiểm thử dòng điều khiển với một độ đo kiểm thử cho trước.
+Trả lời:
+•	Bước 1: Xác định các nút (các câu lệnh, lệnh tuần tự, điểm kết thúc một vòng lặp, điểm kết thúc một hàm,...)
+•	Bước 2: Vẽ đồ thị thể hiện luồng điều khiển của chương trình/ đơn vị chương trình:
+-	Các nút đã xác định ở Bước 1.
+-	Các cạnh nối hai nút biểu diễn dòng điều khiển.
+•	Bước 3: Xác định số đường kiểm thử V(G) và chỉ rõ đường tương ứng . 
+-	Số đường kiểm thử: V(G) = Số cạnh – Số đỉnh + 2 hoặc 
+V(G) = Số điểm quyết định +1.
+-	Xác định các đường kiểm thử: tập các đường độc lập tuyến tính.
+•	Bước 4: Dựa vào các trường hợp kiểm thử xác định các Test case tương ứng.
+Bài 5: Thế nào là kiểm thử luồng dữ liệu tĩnh? Thế nào là kiểm thử luồng dữ liệu động? Trình bày mối quan hệ giữa chúng?
+Trả lời:
+a.	Kiểm thử luồng dữ liệu tĩnh : 
+-	Thực hiện bằng cách phân tích các mã nguồn, không thực thi các mã.
+-	Thường được sử dụng để phát hiện các vấn đề về khai báo, khởi tạo giá trị cho các biến và sử dụng chúng.
+-	Liên quan đến việc kiểm chứng.
+b.	Kiểm thử luồn dữ liệu động:
+-	Thực hiện bằng cách chạy mã lập trình thực tế trong các tình huống.
+-	Sử dụng nhằm phát hiện các lỗi tiềm ẩn mà kiểm thử tĩnh không phát hiện được.
+-	Liên quan đến việc xác nhận.
+Kiểm thử dòng dữ liệu tĩnh được xem như một bước tiền xử lý mã nguồn trước khi áp dụng phương pháp kiểm thử dòng dữ liệu động.
+
